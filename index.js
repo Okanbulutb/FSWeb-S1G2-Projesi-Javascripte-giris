@@ -11,16 +11,16 @@ Bunu sağlamak için cevabı direk console'a loglayın veya çağırdığınız 
 */
 
 /*
-Görev 1a - Ehliyet Yaşı (puanlamaya dahil değildir)
+Görev 1a - Ehliyet Yaşı (puanlamaya dahil değildir)*/
 
-Aşağıdakileri yapın:   
-   1. surucuYasi diye bir değişken yaratın ve bir sayı atayın.
-   2. Eğer yaş 18'den büyük ise Console'da True, değilse False değeri yazdırın.
+var surucuYasi = 25;
 
-   İPUCU: fonksiyon oluşturmaya gerek yok
-*/
-
-
+if ((surucuYasi) >= 18){
+  console.log(true);
+}
+else{
+  console.log(false);
+}
 
 /*
 Görev 1b - Değerler (puanlamaya dahil değildir)
@@ -35,9 +35,6 @@ Aşağıdakileri yapınız:
 */
 
 
-
-
-
 /*
 Görev 1c - String bir değeri Number'a dönüştürün (puanlamaya dahil değildir)
 
@@ -50,132 +47,135 @@ Aşağıdakileri yapın:
 */
 
 
-
-
 /*
-Görev 1d - Çarpma
- 
-Aşağıdakileri yapın:   
-   1. a ve b olarak 2 değer alın
-   2. Aşağıdaki çarpma fonksiyonunu çağırarak, 2 sayıyı bu fonksiyona iletin
-   3. a ve b'yi çarpıp, sonucu dönün
-*/
+Görev 1d - Çarpma */
 
-function carpma(/*buraya kodunu yazabilirsin*/){
-  /*buraya kodunu yazabilirsin*/
+function carpma(a,b){
+  return a*b
 }
-
-
-
-
+console.log(carpma(6,8));
+ 
 /* Görev 2 : Köpeğin Yaşı */
 
-/*
-Aşağıdakileri yapın:
- 1. Aşağıdaki fonksiyona bir değer ileterek çalıştırın.
- 2. Gelen değeri kullanarak köpeğin yaşını hesaplayın (insanlarda 1 yıl köpeklerde 7 yıla denk gelir)
- 3. Hesaplanan köpeğin yaşını dönün.
- */
-
-function kopeginYasi(/*buraya kodunu yazabilirsin*/){
-  /*buraya kodunu yazabilirsin*/
+function kopeginYasi(y){
+  return y*7;
 }
-
-
+console.log(kopeginYasi(4));
 
 /* Görev 3 */
 
 // Taş, Kağıt, Makas oyununu bilgisayara karşı oynayalım!
-/*
-Aşağıdakileri yapın:
-1. Bilgisayarın seçimini rastgele oluşturacağımız bir değişken tanımlayın (bu fonksiyon içinde yaratılmalı)
-2. Math.random'ı kullanarak bilgisayarın seçimini oluşturun (Math.random 0-1 arasında bir değer verecek)
-3. Bu rastgele değeri "Taş", "Kağıt" veya "Makas"a dönüştüren bir koşul oluşturun
 
-Aşağıdakileri oyun isimli fonksiyonu kullanarak yapın.
-1. 2 parametre alın: oyuncunun tercihini alan bir string değer: "Taş", "Kağıt" veya "Makas" 
-   ve bilgisayarınkini alan: "Taş", "Kağıt" veya "Makas"
-   Not: string değerlerin yazımına dikkat! İlk harf büyük ve türkçe karakterler kullanarak. Yoksa testi geçemez.
-2. Aşağıdaki oyun kurallarına göre oyuncunun kazanıp kazanamadığını veya berabere kalıp kalmadığını dönün - (uygulamanın oluşturduğu çıktı tam olarak aşağıdakinin aynısı olmalı)
- - kazanma durumunda "Kazandın!" dönmeli
- - kaybetme durumunda "Kaybettin!" dönmeli
- - beraberlikte "Beraberlik" dönmeli
-
-OYUNUN KURALLARI: Makas Kağıdı yener| Kağıt Taşı yener | Taş Makas'ı yener | veya beraberlik olur.
-*/
-
-function oyun(oyuncu, bilgisayar){
-  /*buraya kodunu yazabilirsin*/
+function player(p){
+  return p;
 }
 
+let comp = Math.floor(Math.random() * 3);
+function CompChoice(comp){
+
+if (comp === 0){
+  return 'Taş';
+}
+else if (comp === 1){
+  return 'Makas';
+}
+else if (comp === 2){
+  return 'Kağıt';
+}
+}
+
+function oyun(oyuncu,bilgisayar){
+  player(oyuncu);
+  CompChoice(bilgisayar);
+
+  console.log("Oyuncu" + ":" + player(oyuncu));
+  console.log("Bilgisayar" +":" + CompChoice(bilgisayar));
+  
+  if (player(oyuncu) === 'Taş' && CompChoice(bilgisayar) === 'Kağıt'){
+    return "Kaybettin!";
+  }
+  else if (player(oyuncu) === 'Taş' && CompChoice(bilgisayar) === 'Makas'){
+    return "Kazandın!";
+  }
+  else if(player(oyuncu) === 'Taş' && CompChoice(bilgisayar) === 'Taş'){
+    return "Beraberlik";
+  }
+  else if(player(oyuncu) === 'Makas' && CompChoice(bilgisayar) === 'Taş'){
+     return "Kaybettin!";
+  }
+    else if(player(oyuncu) === 'Makas' && CompChoice(bilgisayar) === 'Makas'){
+    return "Beraberlik";
+  }
+    else if(player(oyuncu) === 'Makas' && CompChoice(bilgisayar) === 'Kağıt'){
+    return "Kazandın!";
+  }
+    else if(player(oyuncu) === 'Kağıt' && CompChoice(bilgisayar) === 'Taş'){
+    return "Kazandın!";
+  }
+    else if(player(oyuncu) === 'Kağıt' && CompChoice(bilgisayar) === 'Makas'){
+     return "Kaybettin!";
+  }
+    else if(player(oyuncu) === 'Kağıt' && CompChoice(bilgisayar) === 'Kağıt'){
+    return "Beraberlik";
+  }
+}
+console.log(oyun("Kağıt",comp));
 
 
 /* Görev 4 : Metrik Dönüştürücü */
 
 //Görev 4a - Kilometreden Mil
-/*
-Aşağdakileri milDonusturucu fonksiyonunu kullanarak yapın:
-1. Kilometre değerini alın.
-2. Aldığınız bu değeri Mil'e dönüştürün
-3. Mil değerini geri dönün
-*/
 
-function milDonusturucu(/*buraya kodunu yazabilirsin*/){
-  /*buraya kodunu yazabilirsin*/
+function milDonusturucu(m){
+  return m* 0.621371;
 }
-
-
+console.log(milDonusturucu(3));
 
 //Görev 4b - Santimetreden Feet
-/*
-Aşağıdakileri feetDonusturucu fonsiyonunu kullanarak yapın:
-1. Santimetre değerini alın.
-2. Aldığınız bu değeri feet'e dönüştürün
-3. feet değerini geri dönün
-*/
 
-function feetDonusturucu(/*buraya kodunu yazabilirsin*/){
-  /*buraya kodunu yazabilirsin*/
+function feetDonusturucu(f){
+  return f / 30.48;
 }
 
+console.log(feetDonusturucu(3));
 
 
 /* Görev 5 : 5 küçük maymun yatakta zıplamış şarkısını çocuklar için hazırladığımızı varsayalım. https://www.youtube.com/watch?v=e4EJ34xnlxk */
 
-/*
-Aşağıdakileri cocukSarkisi fonksiyonunda yapın:
-1. Başlangıçta var olan maymun sayısını alın.
-2. cocukSarkisi fonksiyonu aşağıdaki satırı sadece 1 kere yazdırmalı:
-
-    "{sayı} küçük maymun yatakta zıplamış, biri düşüp başını çarpmış, Anne doktoru aramış, Doktor çok kızmış: Bir daha yatakta zıplamak yok!"
-
-3. Bu fonksiyonun dışında bir yerde, maymun sayısının her seferinde 1 azaldığı ve maymun sayısı 1 olana kadar devem eden bir döngü oluşturun. 
-4. Bu döngüde, her seferinde cocukSarkisi fonsiyonu çalışsın ve console.log'a dönen metni yazdırsın.
-*/
-
-function cocukSarkisi(/*buraya kodunu yazabilirsin*/){
-      /*buraya kodunu yazabilirsin*/
+function cocukSarkisi(){
+  for(let i = 5; i>0; i--){
+   console.log(i + " küçük maymun yatakta zıplamış, biri düşüp başını çarpmış, Anne doktoru aramış, Doktor çok kızmış: Bir daha yatakta zıplamak yok!");
+  }
 }
+console.log(cocukSarkisi());
 
 
 /* Görev 6 : Not Hesaplayıcı */
 
-/*
-Aşağdakileri notHesapla fonksiyonunda yapın.
-1. 100'lük sistemde bir sınav sonucu alın.
-2. Aşağıdaki tabloya göre notu dönün.
-
- 90-100 arasında 'A aldın' 
- 80-89 arasında 'B aldın'
- 70-79 arasında 'C aldın'
- 60-69 arasında 'D aldın'
- daha aşağıda 'F aldın'
- dönün
-*/
-
-function notHesapla(/*buraya kodunu yazabilirsin*/){
-/*buraya kodunu yazabilirsin*/
+function notHesapla(n){
+  if (90 < n && n < 100)
+  {
+    return "A aldın";
+  }
+  else if (80 < n && n < 89)
+  {
+    return "B aldın";
+  }
+   else if (70 < n && n < 79)
+  {
+    return "C aldın";
+  }
+    else if (60 < n && n < 69)
+  {
+    return "D aldın";
+  }
+    else if (n < 60)
+  {
+    return "F aldın";
+  }
 }
+
+console.log(notHesapla(84));
 
 
 
